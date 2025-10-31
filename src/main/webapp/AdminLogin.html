@@ -2,49 +2,82 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-	<title>Book Store</title>
-	
+<title>Admin Login</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #B2DFDB;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Full viewport height */
+    }
+
+    .center-box {
+        background-color: #FFFFFF;
+        width: 300px;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .center-box h1 {
+        font-size: 1.5em;
+        color: #245B66;
+        margin-bottom: 20px;
+    }
+
+    .center-box form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .input_name,
+    .input_pass{
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #CCC;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    .input_name:focus,
+    .input_pass:focus {
+        border-color: #3D9970;
+    }
+
+    .sub_btn {
+        background-color: #245B66;
+        color: #FFFFFF;
+        font-size: 1em;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .sub_btn:hover {
+        background-color: #1a3e4e;
+        transform: scale(1.05);
+    }
+
+</style>
 </head>
 <body>
-<div id="topmid">
-		<h1>Welcome to Rajtara Book Store</h1>
-	</div>
-	
-	<div class="home">
-		<a href="index.html">Home</a>
-	</div>
-
-	<div class="home">
-		<a href="index.html">Login</a>
-	</div>
-	
-	<div class="home">
-		<a href="viewbook">Books Available</a>
-	</div>
-
-	<div class="home">
-		<a href="index.html">Logout</a>
-	</div>
-	
-	<table class="tab brown hd">
-		<tr>
-			<td>ADMIN LOGIN</td>
-		</tr>
-	</table>
-
-	<table class="tab" border="0px" >
-		
-		<tr>
-			<td>
-				<form action="adminlog" method="post">
-					Username: <input type="text" name="username"><br/><br/>
-					Password: <input type="password" name="password"><br/><br/>
-					<input type="submit" value=" LOGIN AS ADMIN " text-align="center">
-				</form>
-			</td>
-			
-		</tr>  
-	</table>
-	</div>
+    <div class="center-box">
+        <h1>Admin Login</h1>
+        <form action="adminlog" method="post">
+            <input class="input_name" type="text" name="username" placeholder="Username" required>
+            <input class="input_pass" type="password" name="password" placeholder="Password" required>
+            <input class="sub_btn" type="submit" value="LOGIN AS ADMIN">
+        </form>
+    </div>
 </body>
 </html>

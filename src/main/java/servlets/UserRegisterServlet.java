@@ -78,7 +78,7 @@ public class UserRegisterServlet extends HttpServlet {
             int result = ps.executeUpdate();
 
             if (result == 1) {
-                RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
+                RequestDispatcher rd = req.getRequestDispatcher("index.jsp");
                 rd.include(req, res);
                 pw.println("<h3 class='tab'>User Registered Successfully</h3>");
             } else {

@@ -1,32 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login - Rajtara Book Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #B2DFDB;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: white;
+            padding: 40px 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #245B66;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #245B66;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #1a3e4e;
+        }
+        .error-message {
+            color: #d8000c;
+            background: #ffdddd;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-	<table class="tab brown hd" >
-		<tr>
-			<td>Login or Signup Below</td>
-		</tr>
-	</table>
 
-	<table class="tab" border="0px solid black">
-		
-		<tr>
-			<td><a href="AdminLogin.html">Login As Admin</a></td>
-		</tr>
-	</table>
-	<table class="tab" border="0px solid black">
-		
-		<tr>
-			<td><a href="UserLogin.html"> Login As<span> User</span> </a></td>
-		</tr>
-	</table>
-	<table class="tab green">
-		<tr>
-			<td><a href="UserRegister.html">New user ! Register Here</a></td>
-		</tr>
-	</table>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="userlog" method="post">
+            <input type="text" name="username" placeholder="Enter Username" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
 </body>
 </html>

@@ -20,12 +20,11 @@ public class UserLoginServlet extends HttpServlet {
         res.setContentType(IOnlineBookStoreConstants.CONTENT_TYPE_TEXT_HTML);
         PrintWriter pw = res.getWriter();
         
-        // Fetch user credentials from the request
         String uName = req.getParameter(IUserContants.COLUMN_USERNAME);
         String pWord = req.getParameter(IUserContants.COLUMN_PASSWORD);
 
         try {
-            // Establish database connection
+            
             Connection con = DBConnection.getCon();
             PreparedStatement ps = con.prepareStatement(
                 "SELECT * FROM " + IUserContants.TABLE_USERS + 
@@ -36,32 +35,45 @@ public class UserLoginServlet extends HttpServlet {
             ps.setString(1, uName);
             ps.setString(2, pWord);
 
-            // Execute query
+            
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                // User found, include sample page and display welcome message
-                RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
-                rd.include(req, res);
-                pw.println("<div class=\"home hd brown\">Welcome, " + uName + "!</div><br/>");
-                pw.println("<div class=\"tab hd brown\">User Login Successful!</div><br/>");
-                pw.println("<div class=\"tab\"><a href=\"viewbook\">VIEW BOOKS</a></div>");
-                pw.println("<div class=\"tab\"><a href=\"buybook\">BUY BOOKS</a></div>");
+               req.setAttribute("username", uName);
+               RequestDispatcher rd = req.getRequestDispatcher("userDashboard.jsp");
+               rd.include(req, res);
+              
+               pw.println("<div style='width: 100%; padding: 4px 0; text-align: center; background-color:  #808080    ; position: fixed; bottom: 10; left: 0; z-index: 1000;'>"
+            	        + "<marquee behavior='scroll' direction='right' scrollamount='5'>"
+            	        + "<a href='buybook' style='color: #FFFFFF; font-size: 0.85em; font-weight: bold; text-decoration: none; display: inline-block; transition: color 0.3s ease;' "
+            	        + "onmouseover='this.style.color=\"#D4EDDA\"' onmouseout='this.style.color=\"#FFFFFF\"'>"
+            	        + "GET NEW PUBLISHED BOOKS AT BEST PRICE ! HURRY UP !</a>"
+            	        + "</marquee>"
+            	        + "</div>");
+
+
+
+
+
+               RequestDispatcher rrd = req.getRequestDispatcher("user.jsp");
+               rrd.include(req, res);
             } else {
-                // Invalid credentials, redirect to login page
+                
                 RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
                 rd.include(req, res);
-                pw.println("<div class=\"tab\">Incorrect Username or Password</div>");
+                pw.println("<div style='width: 100%; padding: 10px; text-align: center; background-color: #ffdddd; color: #d8000c; font-weight: bold; position: absolute; top: 0; left: 0;'>"
+                	    + "Incorrect Username or Password</div>");
+
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
-            pw.println("<div class=\"tab red\">Database Error: " + e.getMessage() + "</div>");
+            pw.println("<div> Database Error: " + e.getMessage() + "</div>");
         } catch (Exception e) {
             e.printStackTrace();
-            pw.println("<div class=\"tab red\">An unexpected error occurred: " + e.getMessage() + "</div>");
+            pw.println("<div> An unexpected error occurred: " + e.getMessage() + "</div>");
         } finally {
-            pw.close(); // Close the PrintWriter
+            pw.close(); 
         }
     }
 }

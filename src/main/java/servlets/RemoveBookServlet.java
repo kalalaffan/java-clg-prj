@@ -46,20 +46,20 @@ public class RemoveBookServlet extends HttpServlet {
             int result = ps.executeUpdate();
 
             // Forward to the page with appropriate messages
-            RequestDispatcher rd = req.getRequestDispatcher("Sample.html");
+            RequestDispatcher rd = req.getRequestDispatcher("RemoveBooks.html");
             rd.include(req, res);
 
             if (result == 1) {
-                pw.println("<div class=\"tab\">Book Removed Successfully</div>");
-                pw.println("<div class=\"tab\"><a href=\"RemoveBooks.html\">Remove more Books</a></div>");
+            	pw.println("<div style='text-align: center; font-weight: bold; font-size: 18px; color: #3D9970; margin-top: 20px;'>Book Removed Successfully</div>");
+            	pw.println("<div style='text-align: center; margin-top: 10px;'><a href='RemoveBooks.html' style='color: #fff; background-color: #3D9970; padding: 10px 15px; border-radius: 5px; text-decoration: none;'>Remove more Books</a></div>");
             } else {
-                pw.println("<div class=\"tab\">Book Not Available In The Store</div>");
-                pw.println("<div class=\"tab\"><a href=\"RemoveBooks.html\">Remove more Books</a></div>");
+            	pw.println("<div style='text-align: center; font-weight: bold; font-size: 18px; color: #D32F2F; margin-top: 20px;'>Book Not Available In The Store</div>");
+            	pw.println("<div style='text-align: center; margin-top: 10px;'><a href='RemoveBooks.html' style='color: #fff; background-color: #D32F2F; padding: 10px 15px; border-radius: 5px; text-decoration: none;'>Remove more Books</a></div>");
             }
         } catch (Exception e) {
             // Log exception and send an error message to the client
             e.printStackTrace();
-            pw.println("<div class=\"tab\">An unexpected error occurred: " + e.getMessage() + "</div>");
+            pw.println("<div style='text-align: center; font-weight: bold; font-size: 18px; color: #FF5722; margin-top: 20px;'>An unexpected error occurred: " + e.getMessage() + "</div>");
         } finally {
             // Close resources to avoid memory leaks
             try {

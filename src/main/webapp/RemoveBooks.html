@@ -2,33 +2,80 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-	<title>Book Store</title>
+<title>Remove Book</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #B2DFDB;
+        margin: 0;
+        padding: 20px;
+    }
+    .container {
+        max-width: 500px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 25px 50px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+    h2 {
+        color: #245B66;
+        margin-bottom: 20px;
+    }
+    label {
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        text-align: left;
+        margin-bottom: 8px;
+        color: #333;
+    }
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .btn {
+        background-color: #D9534F;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .btn:hover {
+        background-color: #C9302C;
+    }
+    .btn.cancel {
+        background-color: #245B66;
+    }
+    .btn.cancel:hover {
+        background-color: #1a3e4e;
+    }
+</style>
 </head>
-<body>
-<div id="topmid">
-		<h1>Welcome to Online Book Store</h1>
-	</div>
-	<div class="home">
-		<a href="adminlog">Home</a>
-	</div>
-
-	<div class="home">
-		<a href="index.html">Login</a>
-	</div>
-	
-	<div class="home">
-		<a href="viewbook">Books Available</a>
-	</div>
-
-	<div class="home">
-		<a href="index.html">Logout</a>
-	</div>
-	
-	<div class="tab">
-	<form action="remove" method="post">
-		Book Code: <input type="text" name="barcode">
-			<input type="submit" value="Remove Book">
-	</form>
-	</div>
+<body>    
+    <div class="container">
+        <h2>Remove a Book</h2>
+        <form action="remove" method="post">
+            <label for="barcode">Book Code:</label>
+            <input type="text" id="barcode" name="barcode" required>
+            <div class="btn-container">
+                <input type="submit" class="btn" value="Remove Book">
+                <input type="button" class="btn cancel" value="Cancel" onclick="history.back()">
+            </div>
+        </form>
+    </div>
 </body>
 </html>

@@ -1,58 +1,108 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-	<title>Book Store</title>
-	
+    <meta charset="ISO-8859-1">
+    <title>Add Book | Online Bookstore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #B2DFDB;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 350px;
+            background: #fff;
+            padding: 25px;
+            padding-right: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            height: auto;
+        }
+        h1 {
+            color: #245B66;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            text-align: left;
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        input[type="file"] {
+            padding: 5px;
+        }
+        .btn {
+            width: 100%;
+            background-color: #245B66;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background-color: #1a3e4e;
+        }
+        .btn1 {
+            width: 40%;
+            background-color: #245B66;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn1:hover {
+            background-color: #1a3e4e;
+        }
+        
+    </style>
 </head>
 <body>
-<div id="topmid">
-		<h1>Welcome to Rajtara Book Store</h1>
-	</div>
-	
-	<div class="home">
-		<a href="adminlog">Home</a>
-	</div>
+    <div class="container">
+        <h1>Add Book</h1>
+        <form action="addbook" method="post" enctype="multipart/form-data">
+            <label for="barcode">Book Code:</label>
+            <input type="text" id="barcode" name="barcode" required>
 
-	<div class="home">
-		<a href="index.html">Login</a>
-	</div>
-	
-	<div class="home">
-		<a href="viewbook">Books Available</a>
-	</div>
+            <label for="name">Book Name:</label>
+            <input type="text" id="name" name="name" required>
 
-	<div class="home">
-		<a href="index.html">Logout</a>
-	</div>
-	
-	<table class="tab hd brown">
-		<tr>
-			<td>Add Books</td>
-		</tr>
-	</table>
+            <label for="author">Book Author:</label>
+            <input type="text" id="author" name="author" required>
 
-	<table class="tab" border="0px" cellpadding="10" cellspacing="10" text-color="red">
-		<tr>
-			<td>
-				<form action="addbook" method="post" enctype="multipart/form-data">
-					Book Code : <input type="text" name="barcode"><br/><br/>
-					Book Name : <input type="text" name="name"><br/><br/>
-					BookAuthor: <input type="text" name="author"><br/><br/>
-					Book Price: <input type="text" name="price"><br/><br/>
-					Book Qnty : <input type="text" name="quantity"><br/><br/>
-					Book Image: <input type="file" name="image" accept="image/*" required><br/><br/>
-					<input type="submit" value=" Add These Books ">
-				</form>
-			</td>
-		</tr>  
-	</table>
+            <label for="price">Book Price:</label>
+            <input type="text" id="price" name="price" required>
 
-	<table class="tab">
-		<tr>
-			<td><a href="index.html">Back To Home Page</a></td>
-		</tr>
-	</table>
-	</div>
+            <label for="quantity">Book Quantity:</label>
+            <input type="text" id="quantity" name="quantity" required>
+
+            <label for="image">Book Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+
+            <button type="submit" class="btn">Add This Book</button>
+        </form>
+        <button class='btn1' onclick="history.back()">Back</button>
+    </div>
 </body>
 </html>

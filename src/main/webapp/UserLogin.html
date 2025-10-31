@@ -2,46 +2,75 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-	<title>Book Store</title>
+<title>User Login</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #B2DFDB;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .center-box {
+        background-color: #FFFFFF;
+        padding: 20px;
+        width: 300px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    .center-box h1 {
+        font-size: 1.8em;
+        color: #245B66;
+        margin-bottom: 20px;
+    }
+
+    .input_name, .input_pass {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 1em;
+        border: 1px solid #CCC;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s;
+    }
+
+    .input_name:focus, .input_pass:focus {
+        border-color: #3D9970;
+    }
+
+    .sub_btn {
+        background-color: #245B66;
+        color: #FFFFFF;
+        font-size: 1em;
+        padding: 10px;
+        width: 95%;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .sub_btn:hover {
+        background-color: #1a3e4e;
+        transform: scale(1.05);
+    }
+</style>
 </head>
 <body>
-<div id="topmid">
-		<h1>Welcome to Rajtara Book Store</h1>
-	</div>
-	<div class="home">
-		<a href="">Home</a>
-	</div>
-
-	<div class="home">
-		<a href="index.html">Login</a>
-	</div>
-	
-	<div class="home">
-		<a href="viewbook">Books Available</a>
-	</div>
-
-	<div class="home">
-		<a href="index.html">Logout</a>
-	</div>
-	
-	<table class="tab hd brown">
-		<tr>
-			<td>USER LOGIN</td>
-		</tr>
-	</table>
-
-	<table class="tab" border="0px" cellpadding="10" cellspacing="10">
-		
-		<tr>
-			<td>
-				<form action="userlog" method="post">
-					Username: <input type="text" name="username"><br/><br/>
-					Password: <input type="password" name="password"><br/><br/>
-					<input type="submit" value=" LOGIN AS USER ">
-				</form>
-			</td>
-			
-		</tr>  
-	</table>
+    <div class="center-box">
+        <h1>USER LOGIN</h1>
+        <form action="userlog" method="post">
+            <input class="input_name" type="text" name="username" placeholder="Username" required><br/>
+            <input class="input_pass" type="password" name="password" placeholder="Password" required><br/>
+            <input class="sub_btn" type="submit" value="LOGIN AS USER">
+        </form>
+    </div>
 </body>
 </html>

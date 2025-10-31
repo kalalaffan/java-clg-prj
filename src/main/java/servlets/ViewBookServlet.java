@@ -26,7 +26,6 @@ public class ViewBookServlet extends HttpServlet {
         PrintWriter pw = res.getWriter();
 
         
-       
 
         try {
             // Load the driver and connection building

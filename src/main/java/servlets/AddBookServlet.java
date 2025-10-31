@@ -39,7 +39,7 @@ public class AddBookServlet extends HttpServlet{
 	        int bPrice = Integer.parseInt(req.getParameter(IBookConstants.COLUMN_PRICE));
 	        int bQty = Integer.parseInt(req.getParameter(IBookConstants.COLUMN_QUANTITY));
 	        
-	        Part filePart = req.getPart("image"); // "image" is the name of the form field
+	        Part filePart = req.getPart("image"); 
 	        String myFile = filePart.getSubmittedFileName();
 	        
 	        String uploadPath = "C:\\Users\\Dell\\eclipse-workspace\\onlinebookstore\\src\\main\\webapp\\images\\";
@@ -76,14 +76,27 @@ public class AddBookServlet extends HttpServlet{
 	            int k = ps.executeUpdate();
 	            if (k == 1) {
 	                req.getRequestDispatcher("AddBook.html").include(req, res);
-	                pw.println("<div class=\"tab\">Book Detail Updated Successfully!<br/>Add More Books</div>");
+	                pw.println("<div style='position: absolute; top: 20px; left: 50%; transform: translateX(-50%); max-width: 300px; padding: 15px; background: #D4EDDA; color: #155724; border: 1px solid #C3E6CB; border-radius: 8px; text-align: center; font-weight: bold;'>"
+	                        + "Book Added Successfully!</div>");
+
 	            } else {
 	                req.getRequestDispatcher("AddBook.html").include(req, res);
-	                pw.println("<div class=\"tab\">Failed to Add Books! Fill up Carefully</div>");
+	                pw.println("<div style='position: absolute; top: 20px; left: 50%; transform: translateX(-50%); max-width: 300px; padding: 15px; background: #F8D7DA; color: #721C24; border: 1px solid #F5C6CB; border-radius: 8px; text-align: center; font-weight: bold;'>"
+	                        + "Failed to Add Book! Fill up Carefully</div>");
+
 	            }
+
 	        } catch (Exception e) {
 	            e.printStackTrace();
-	            pw.println("<div class=\"tab\">An error occurred while adding the book. Please try again.</div>");
+	            pw.println("<div style='"
+	                    + "position: absolute; top: 20px; left: 50%; transform: translateX(-50%);"
+	                    + "max-width: 350px; padding: 15px; margin-top:-25px; border-radius: 8px;"
+	                    + "background: #F8D7DA; color: #721C24; border: 1px solid #F5C6CB;"
+	                    + "text-align: center; font-weight: bold; font-size: 16px;"
+	                    + "box-shadow: 0px 4px 6px rgba(0,0,0,0.1);'>"
+	                    + "An error occurred while adding the book. Please try again."
+	                    + "</div>");
+
 	            req.getRequestDispatcher("AddBook.html").include(req, res);
 	        }
 	    }

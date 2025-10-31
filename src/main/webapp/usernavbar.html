@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Navbar</title>
+<style>
+body, html {
+    margin-top: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #245B66; 
+   /* background-color: #245B66;*/ 
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    z-index: 1000;
+    height: 45px;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+
+.navbar .logo img {
+    height: 45px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 2px solid #FFFFFF;
+}
+
+.navbar .logo h1 {
+    color: #FFFFFF;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar a {
+    color: #FFFFFF; 
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s; 
+    border-radius: 5px;
+     margin-right: 15px; 
+}
+
+.navbar a:hover {
+    background-color: #3A7D8A;
+    color: #FFF; 
+    border-radius: 5px;
+}
+
+</style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="images/rajtaralogo.jpg" alt="Rajtara Logo"> 
+            <h1>Rajtara</h1>
+        </div>
+        <a href="index.jsp">Home</a>
+        <!-- <a href="login.jsp">Login</a> -->
+        <!-- <a href="viewbook">Books Available</a> -->
+        <a href="index.jsp">Logout</a>
+    </div>
+</body>
+</html>
